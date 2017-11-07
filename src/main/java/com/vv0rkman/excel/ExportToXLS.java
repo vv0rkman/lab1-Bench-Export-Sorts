@@ -1,21 +1,12 @@
 package com.vv0rkman.excel;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Map;
 
 import com.vv0rkman.analyzer.Results;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -26,26 +17,15 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
  */
 public class ExportToXLS {
 
-    public static void exportToXLS(Results[] results, int fillerSize, int countOfFillers) throws IOException {
-        //String excelFileName = "E://Test.xls";//name of excel file
-        //String excelFileName = "/mnt/120CA0D50CA0B4DF/Test.xls";
-        String excelFileName = "/mnt/64B605AAA5746577/Test.xls";
-
-        HashMap<String, Long> resultsData;
-
-//        Iterator<Long> keySetIterator = results.keySet().iterator();
-//        while (keySetIterator.hasNext()) {
-//            Long k = keySetIterator.next();
-//            System.out.println(results.get(k));
-//            System.out.println(k);
-//
-//        }
-//        System.out.println(results.keySet());
+    public static void exportToXLS(Map<String, Results[]> resultsMap, int fillerSize) {
+        //String excelFileName = "E://Test.xls"; //name of excel file Laptop-Win
+        String excelFileName = "/mnt/120CA0D50CA0B4DF/Test.xls"; //Laptop-Ubuntu
+        //String excelFileName = "/mnt/64B605AAA5746577/Test.xls"; //PC-Win
 
         HSSFWorkbook wb = new HSSFWorkbook();
 
-        for (int i = 0; i < countOfFillers; i++) {
-            HSSFSheet sheet = wb.createSheet(results[i].getFillerName());
+        for (Map.Entry<String, Results[]> entry : resultsMap.entrySet()) {
+            HSSFSheet sheet = wb.createSheet(entry.getKey());
             HSSFRow row = sheet.createRow(0);
             HSSFCell cell = row.createCell(0);
             cell.setCellValue("Sort Name");
@@ -55,24 +35,27 @@ public class ExportToXLS {
             cell.setCellValue("Elapsed Time");
 
             int r = 1;
-            resultsData = results[i].getResults();
-            for (String k : resultsData.keySet()) {
+            for (Results results1 : entry.getValue()) {
                 row = sheet.createRow(r++);
                 cell = row.createCell(0);
-                cell.setCellValue(k);
+                cell.setCellValue(results1.getSorterName());
 
                 cell = row.createCell(1);
                 cell.setCellValue(fillerSize);
 
                 cell = row.createCell(2);
-                cell.setCellValue(resultsData.get(k));
+                cell.setCellValue(results1.getResult());
             }
-
         }
 
         try (FileOutputStream fileOut = new FileOutputStream(excelFileName)) {
             wb.write(fileOut);
             fileOut.flush();
+            System.out.println("Data has been exported");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

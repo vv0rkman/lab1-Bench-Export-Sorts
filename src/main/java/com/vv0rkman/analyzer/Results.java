@@ -1,24 +1,22 @@
 package com.vv0rkman.analyzer;
 
-import java.util.HashMap;
-
 public class Results {
-    private String fillerName;
-    private HashMap<String, Long> results = new HashMap<>();
+    private String sorterName;
+    private Long result;
 
-    public HashMap<String, Long> getResults() {
-        return this.results;
+    public Long getResult() {
+        return result;
     }
 
-    public void setResults(HashMap<String, Long> results) {
-        this.results = results;
+    public void setResult(Long result) {
+        this.result = result;
     }
 
-    public String getFillerName() {
-        return fillerName;
+    public String getSorterName() {
+        return sorterName;
     }
 
-    public void setFillerName(String fillerName) {
-        this.fillerName = fillerName;
+    public void setSorterName(String sorterName) {
+        this.sorterName = sorterName;
     }
 }
