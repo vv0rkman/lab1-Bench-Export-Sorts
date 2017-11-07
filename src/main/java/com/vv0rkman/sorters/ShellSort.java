@@ -21,6 +21,12 @@ public class ShellSort extends Sort {
 
     @Override
     public int[] sort(int[] array) {
+        if (array == null) {
+            throw new NullPointerException("Input array is null");
+        } else if (array.length <= 1) {
+            return array;
+        }
+
         int i1, i, j, increment, temp, number_of_elements = array.length;
         /* Shell Sort Program */
         for (increment = number_of_elements / 2; increment > 0; increment /= 2) {

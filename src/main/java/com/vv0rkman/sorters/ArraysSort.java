@@ -8,13 +8,11 @@ package com.vv0rkman.sorters;
 import java.util.Arrays;
 
 /**
- *
  * @author Victor Shvydkyi
  */
 public class ArraysSort extends Sort {
 
     /**
-     *
      * @return Description of sorting
      */
     @Override
@@ -24,8 +22,12 @@ public class ArraysSort extends Sort {
 
     @Override
     public int[] sort(int[] array) {
-        Arrays.sort(array);
-        return array;
+        if (!(array == null)) {
+            Arrays.sort(array);
+            return array;
+        } else {
+            throw new NullPointerException("Input array is null");
+        }
     }
 
 }
