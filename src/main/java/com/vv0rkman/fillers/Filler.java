@@ -45,7 +45,7 @@ public class Filler {
      * @return
      */
     @FillerA
-    public static int[] generateSortedASCArrayASC_X(int size) {
+    public static int[] generateSortedArrayASC_X(int size) {
         array = generateSortedArrayASC(size);
         array[size - 1] = RANDOM_NUMBER.nextInt(UPPER_BOUND);
 
