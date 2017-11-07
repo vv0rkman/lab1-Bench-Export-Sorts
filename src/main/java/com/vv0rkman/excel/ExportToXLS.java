@@ -101,7 +101,7 @@ public class ExportToXLS {
             fileOut.close();
             fileIn.close();
             System.out.println("Data has been exported");
-        }catch (FileNotFoundException){
+        }catch (FileNotFoundException e){
             fillNewXLS(resultsMap,fillerSize);
             System.out.println("Template file is not exist. Created new xls document.");
         }catch (IOException e) {
