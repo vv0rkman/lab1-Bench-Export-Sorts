@@ -17,7 +17,7 @@ public class ReflectUtils {
     private final static int DEFAULT_SIZE = 50;
     private final static int DEFAULT_FILLER = 0;
 
-    public static Method[] getFillers() {
+    private static Method[] getFillers() {
         Method[] methods = MethodUtils.getMethodsWithAnnotation(Filler.class, FillerA.class);
         return methods;
     }
