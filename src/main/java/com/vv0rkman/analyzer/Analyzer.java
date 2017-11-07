@@ -33,7 +33,8 @@ public class Analyzer {
             resultsMap.put(ReflectUtils.getFillerName(i), results);
         }
 
-        ExportToXLS.exportToXLS(resultsMap, size);
+        //ExportToXLS.fillNewXLS(resultsMap, size);
+        ExportToXLS.fillExistXLS(resultsMap, size);
     }
 
     public static void setArraySize(int size) {
