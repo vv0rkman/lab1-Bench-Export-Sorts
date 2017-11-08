@@ -15,13 +15,13 @@ package com.vv0rkman.sorters;
  * <br>
  * Bubble sort steps are as follows.
  * <ol>
- * <li> Compare array[0] & array[1]
- * <li> If array[0] > array [1] swap it.
- * <li> Compare array[1] & array[2].
- * <li> If array[1] > array[2] swap it.
+ * <li> Compare array[0] &amp; array[1]
+ * <li> If array[0] &gt; array [1] swap it.
+ * <li> Compare array[1] &amp; array[2].
+ * <li> If array[1] &gt; array[2] swap it.
  * <li> ...
- * <li> Compare array[n-1] & array[n]
- * <li> if [n-1] > array[n] then swap it.
+ * <li> Compare array[n-1] &amp; array[n]
+ * <li> if [n-1] &gt; array[n] then swap it.
  * </ol>
  * <p>
  * After this step we will have largest element at the last index.<br>
