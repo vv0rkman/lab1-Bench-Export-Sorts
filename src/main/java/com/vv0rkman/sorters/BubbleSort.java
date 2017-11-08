@@ -32,6 +32,10 @@ package com.vv0rkman.sorters;
  */
 abstract class BubbleSort extends Sort {
 
+    /**
+     * @param array which will be sorted
+     * @return sorted array
+     */
     @Override
     public final int[] sort(int[] array) {
         boolean swapped = true;

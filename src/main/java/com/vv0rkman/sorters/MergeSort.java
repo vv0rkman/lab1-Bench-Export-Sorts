@@ -20,7 +20,7 @@ public class MergeSort extends Sort {
 
     /**
      * Method which sorts array
-     * @param array unsorted array
+     * @param array which will be sorted
      * @return sorted array
      */
     @Override

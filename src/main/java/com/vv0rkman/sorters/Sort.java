@@ -11,13 +11,14 @@ package com.vv0rkman.sorters;
  * @author vv0rkman
  */
 public abstract class Sort {
-    
+
+
     /**
      * Abstract method which is implemented at Sorters {@link com.vv0rkman.sorters}
      *
      * @see com.vv0rkman.sorters
-     * @filler
+     * @param array which will be sorted
+     * @return sorted array
      */
     public abstract int[] sort(int[] array);
-
 }
