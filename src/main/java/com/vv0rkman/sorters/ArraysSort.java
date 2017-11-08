@@ -20,6 +20,11 @@ public class ArraysSort extends Sort {
         return "Arrays.sort";
     }
 
+    /**
+     * Method which sorts array
+     * @param array unsorted array
+     * @return sorted array
+     */
     @Override
     public int[] sort(int[] array) {
         if (!(array == null)) {

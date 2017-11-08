@@ -9,11 +9,19 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author vv0rkman
+ * Analyzes time of sorting array
+ * @author Victor Shvydkyi
  */
 public class Analyzer {
+    /**
+     * Default value of array size
+     */
     private static int size = 50;
 
+    /**
+     * Invokes fillers and sorters.<br>
+     * Executes benchmark and saves result into XLS.
+     */
     public static void analyze() {
         Map<String, Results[]> resultsMap = new HashMap<>();
         List<Sort> sorters = ReflectUtils.getSorters();
@@ -37,15 +45,29 @@ public class Analyzer {
         ExportToXLS.fillExistXLS(resultsMap, size);
     }
 
+    /**
+     * Sets new size of filled-arrays
+     * @param size of array
+     */
     public static void setArraySize(int size) {
         Analyzer.size = size;
     }
 
+    /**
+     * Return value of parameter <code>size</code>
+     * @return size of filled arrays
+     */
     public static int getArraySize() {
         return Analyzer.size;
     }
 
 
+    /**
+     * Benchmark of sorting
+     * @param sorter object of Class <code>Sort</code>
+     * @param inputArray array which be used in sorting
+     * @return elapsed time of sorting
+     */
     public static Long getBenchmarkResult(Sort sorter, int[] inputArray) {
         long startTime = System.nanoTime();
         sorter.sort(inputArray);

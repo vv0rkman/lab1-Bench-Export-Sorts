@@ -11,13 +11,18 @@ package com.vv0rkman.sorters;
 public class MergeSort extends Sort {
 
     /**
-     * @return Description of sorting
+     * @return Sorter name
      */
     @Override
     public String toString() {
         return "Merge Sort";
     }
 
+    /**
+     * Method which sorts array
+     * @param array unsorted array
+     * @return sorted array
+     */
     @Override
     public int[] sort(int[] array) {
         if (array == null) {
@@ -38,6 +43,14 @@ public class MergeSort extends Sort {
         return array;
     }
 
+
+    /**
+     * Merges the two sorted subarrays in the first half and the second half, <br>
+     * producing the final sorted array
+     * @param array unsorted array
+     * @param left part of unsorted array
+     * @param right part of unsorted array
+     */
     private static void merge(int[] array, int[] left, int[] right) {
         int n1 = left.length;
         int n2 = right.length;

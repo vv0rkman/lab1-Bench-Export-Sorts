@@ -15,10 +15,20 @@ import org.apache.poi.ss.usermodel.*;
 
 
 /**
- * @author Victor
+ * Modules for creating new or opening and filling existed XLS Document.
+ * @author Victor Shvydkyi
  */
 public class ExportToXLS {
 
+    /**
+     * Creates and fills new XLS Document. Graph isn't included.
+     * @param resultsMap data which include names of fillers {@link com.vv0rkman.fillers.Filler}
+     * ,sorters {@link com.vv0rkman.sorters} and results {@link com.vv0rkman.analyzer.Results}.
+     * @param fillerSize count of numbers in array
+     * @see com.vv0rkman.fillers.Filler
+     * @see com.vv0rkman.sorters
+     * @see com.vv0rkman.analyzer.Results
+     */
     public static void fillNewXLS(Map<String, Results[]> resultsMap, int fillerSize) {
         //String excelFileName = "E://Test.xls"; //name of excel file Laptop-Win
         String excelFileName = "/mnt/120CA0D50CA0B4DF/Test.xls"; //Laptop-Ubuntu
@@ -65,6 +75,15 @@ public class ExportToXLS {
     }
 
 
+    /**
+     * Opens and fills existed XLM Document. Graph is included.
+     * @param resultsMap data which include names of fillers {@link com.vv0rkman.fillers.Filler}
+     * ,sorters {@link com.vv0rkman.sorters} and results {@link com.vv0rkman.analyzer.Results}.
+     * @param fillerSize count of numbers in array
+     * @see com.vv0rkman.fillers.Filler
+     * @see com.vv0rkman.sorters
+     * @see com.vv0rkman.analyzer.Results
+     */
     public static void fillExistXLS(Map<String, Results[]> resultsMap, int fillerSize) {
         try {
             FileInputStream fileIn = new FileInputStream("/mnt/120CA0D50CA0B4DF/Template.xls");

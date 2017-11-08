@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.vv0rkman.fillers;
 
 import java.util.Random;
@@ -14,14 +9,21 @@ public class Filler {
 
     private static final Random RANDOM_NUMBER = new Random();
     private static int[] array;
+    /**
+     * Upper bound of random-generated number
+     */
     private static final int UPPER_BOUND = 100;
+    /**
+     * Default size of array. Used in exceptional situations.
+     */
     private static final int DEFAULT_SIZE = 8;
 
     /**
-     * ASC
+     * Generates sorted array.<br>
+     * Order: ASC.
      *
-     * @param size
-     * @return
+     * @param size of array
+     * @return array with sorted numbers
      */
     @FillerA
     public static int[] generateSortedArrayASC(int size) {
@@ -41,8 +43,12 @@ public class Filler {
     }
 
     /**
-     * @param size
-     * @return
+     * Generates sorted array.<br>
+     * Last element is random.<br>
+     * Order: ASC.
+     *
+     * @param size of array
+     * @return array with sorted numbers
      */
     @FillerA
     public static int[] generateSortedArrayASC_X(int size) {
@@ -56,8 +62,11 @@ public class Filler {
     }
 
     /**
-     * @param size
-     * @return
+     * Generates sorted array.<br>
+     * Order: DESC.
+     *
+     * @param size of array
+     * @return array with sorted numbers
      */
     @FillerA
     public static int[] generateSortedArrayDESC(int size) {
@@ -76,8 +85,10 @@ public class Filler {
     }
 
     /**
-     * @param size
-     * @return
+     * Generates random array.<br>
+     *
+     * @param size of array
+     * @return array with sorted numbers
      */
     @FillerA
     public static int[] generateRandomArray(int size) {

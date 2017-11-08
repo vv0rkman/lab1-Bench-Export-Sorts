@@ -19,6 +19,11 @@ public class ShellSort extends Sort {
         return "Shell Sort";
     }
 
+    /**
+     * Method which sorts array
+     * @param array unsorted array
+     * @return sorted array
+     */
     @Override
     public int[] sort(int[] array) {
         if (array == null) {
