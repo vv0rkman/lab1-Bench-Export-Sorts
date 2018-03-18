@@ -32,24 +32,41 @@ package com.vv0rkman.sorters;
  */
 abstract class BubbleSort extends Sort {
 
-    /**
-     * @param array which will be sorted
-     * @return sorted array
-     */
+//    /**
+//     * @param array which will be sorted
+//     * @return sorted array
+//     */
+//    @Override
+//    public final int[] sort(int[] array) {
+//        boolean swapped = true;
+//        for (int i = array.length - 1; i > 0 && swapped; i--) {//from 0 to array.length
+//            swapped = false;
+//            for (int j = 0; j < i; j++) {
+//                if (compare(array[j], array[j + 1]) > 0) {
+//                    swap(array, j, j + 1);
+//                    swapped = true;
+//                }
+//            }
+//        }
+//        return array;
+//    }
+
     @Override
     public final int[] sort(int[] array) {
-        boolean swapped = true;
-        for (int i = array.length - 1; i > 0 && swapped; i--) {//from 0 to array.length
-            swapped = false;
-            for (int j = 0; j < i; j++) {
-                if (compare(array[j], array[j + 1]) > 0) {
-                    swap(array, j, j + 1);
-                    swapped = true;
-                }
-            }
+
+        for (int i = array.length - 1; i > 0; i--) {
+            iterate(array, i);
         }
         return array;
     }
+
+    /**
+     * Processes part of sorting
+     *
+     * @param res array is sorted in iteration
+     * @param pos position of  pointer in top loop
+     */
+    protected abstract void iterate(int[] res, int pos);
 
     /**
      * Abstract method which is implemented at BubbleSortMinHeap
@@ -61,7 +78,7 @@ abstract class BubbleSort extends Sort {
      * @see com.vv0rkman.sorters.BubbleSortMinHeap
      * @see com.vv0rkman.sorters.BubbleSortMaxHeap
      */
-    abstract int compare(int first, int second);
+    abstract boolean compare(int first, int second);
 
     /**
      * Swaps the elements at the specified positions in the specified array
@@ -72,7 +89,7 @@ abstract class BubbleSort extends Sort {
      * @throws IndexOutOfBoundsException if either i or j is out of range (i &lt
      *                                   0 || i &gt= list.size() || j &lt 0 || j &gt= list.size())
      */
-    private static void swap(int[] array, int from, int to) {
+    protected static void swap(int[] array, int from, int to) {
         try {
             int temp = array[from];
             array[from] = array[to];

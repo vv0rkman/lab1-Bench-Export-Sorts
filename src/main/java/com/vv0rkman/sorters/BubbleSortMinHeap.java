@@ -6,13 +6,11 @@
 package com.vv0rkman.sorters;
 
 /**
- *
  * @author Victor Shvydkyi
  */
 public class BubbleSortMinHeap extends BubbleSort {
 
     /**
-     *
      * @return Description of sorting
      */
     @Override
@@ -21,8 +19,17 @@ public class BubbleSortMinHeap extends BubbleSort {
     }
 
     @Override
-    int compare(int first, int second) {
-        return first > second ? 1 : 0;
+    protected void iterate(int[] res, int pos) {
+        for (int j = 0; j < pos; j++) {
+            if (compare(res[j], res[j + 1])) {
+                swap(res, j, j + 1);
+            }
+        }
+    }
+
+    @Override
+    boolean compare(int first, int second) {
+        return first > second;
     }
 
 }

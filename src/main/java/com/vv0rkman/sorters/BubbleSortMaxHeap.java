@@ -21,8 +21,17 @@ public class BubbleSortMaxHeap extends BubbleSort {
     }
 
     @Override
-    int compare(int first, int second) {
-        return first > second ? 1 : 0;
+    protected void iterate(int[] res, int pos) {
+        for (int j = res.length - 1; j >=res.length-pos; j--) {
+            if (compare(res[j-1],res[j])) {
+                swap(res,j-1,j);
+            }
+        }
+    }
+
+    @Override
+    boolean compare(int first, int second) {
+        return first > second;
     }
 
 }
