@@ -29,10 +29,8 @@ public class ExportToXLS {
      * @see com.vv0rkman.sorters
      * @see com.vv0rkman.analyzer.Results
      */
-    public static void fillNewXLS(Map<String, Results[]> resultsMap, int fillerSize) {
-        //String excelFileName = "E://Test.xls"; //name of excel file Laptop-Win
-        String excelFileName = "/mnt/120CA0D50CA0B4DF/Test.xls"; //Laptop-Ubuntu
-        //String excelFileName = "/mnt/64B605AAA5746577/Test.xls"; //PC-Win
+    private static void fillNewXLS(Map<String, Results[]> resultsMap, int fillerSize) {
+        String excelFileName = "Result.xls";
 
         HSSFWorkbook wb = new HSSFWorkbook();
 
@@ -86,7 +84,7 @@ public class ExportToXLS {
      */
     public static void fillExistXLS(Map<String, Results[]> resultsMap, int fillerSize) {
         try {
-            FileInputStream fileIn = new FileInputStream("/mnt/120CA0D50CA0B4DF/Template.xls");
+            FileInputStream fileIn = new FileInputStream("Template.xls");
             HSSFWorkbook wb = new HSSFWorkbook(fileIn);
             Row row;
             Cell cell;
@@ -114,7 +112,7 @@ public class ExportToXLS {
                 sheet.autoSizeColumn(1);
             }
 
-            FileOutputStream fileOut = new FileOutputStream("/mnt/120CA0D50CA0B4DF/Results.xls");
+            FileOutputStream fileOut = new FileOutputStream("Result.xls");
             wb.write(fileOut);
             fileOut.flush();
             fileOut.close();
