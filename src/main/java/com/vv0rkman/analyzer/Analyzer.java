@@ -16,7 +16,7 @@ public class Analyzer {
     /**
      * Default value of array size
      */
-    private static int size = 50;
+    private static int size = 10_000;
 
     /**
      * Invokes fillers and sorters.<br>
@@ -41,7 +41,6 @@ public class Analyzer {
             resultsMap.put(ReflectUtils.getFillerName(i), results);
         }
 
-        //ExportToXLS.fillNewXLS(resultsMap, size);
         ExportToXLS.fillExistXLS(resultsMap, size);
     }
 
